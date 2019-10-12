@@ -1,0 +1,14 @@
+.header-wrapper {
+    margin-bottom: 0;
+    /*background-color: #59534f;*/
+    background-color: #635851;
+    display: flex;
+    justify-content: flex-start !important;
+    height: 5vh;
+    align-content: center;
+}
+
+.header-brand {
+    font-size: 25px !important;
+    font-family: Montserrat, sans-serif;
+}

@@ -6,7 +6,7 @@ class Header extends React.Component {
     return (
       <nav className="navbar navbar-inverse header-wrapper">
           <div className="navbar-header">
-            <a className="navbar-brand header-brand" href="#">WebSiteName</a>
+            <a className="navbar-brand header-brand" href="#">FullThrotttle</a>
           </div>
       </nav>
     )

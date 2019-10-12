@@ -4,12 +4,13 @@ import CalculatorForm from './CalculatorForm';
 import CalculatorResult from './CalculatorResult';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import MySnackbarWrapper from "../Common/Snackbar";
+import { setLocalStorageValue, getLocalStorageValue } from "./sub/helper";
+import CalculatorHistory from "./CalculatorHistory";
 
 /**
  * Contains all the components of calculator feature
  */
 class CalculatorPage extends React.Component {
-
   state = {
     amount: 500,
     time: 6,
@@ -17,7 +18,15 @@ class CalculatorPage extends React.Component {
     result: {},
     loading: false,
     showSnackbar: false,
+    history: null,
   };
+
+  componentDidMount() {
+    const storageValue = getLocalStorageValue();
+    this.setState({
+      history: storageValue,
+    })
+  }
 
   // Handle what happens on Slider change
   handleSliderChange = (event, newValue, field) => {
@@ -65,9 +74,19 @@ class CalculatorPage extends React.Component {
     fetch(`https://ftl-frontend-test.herokuapp.com/interest?amount=${amount}&numMonths=${time}`)
       .then(response => response.json())
       .then(response => {
+        if (response.status && response.status === 'error') {
+          this.setState({
+            loading: false,
+            isResultCalculated: false,
+            showSnackbar: true,
+          });
+          return;
+        }
+        setLocalStorageValue(amount, time);
         this.setState({
           isResultCalculated: true,
           loading: false,
+          history: getLocalStorageValue(),
           result: {
             interestRate: response.interestRate,
             monthlyPayment: response.monthlyPayment.amount,
@@ -89,8 +108,23 @@ class CalculatorPage extends React.Component {
     })
   };
 
+  onHistorySelect = (amount, time) => {
+    this.setState({
+      amount,
+      time,
+    })
+  };
+
   render() {
-    const { amount, time, isResultCalculated, result, loading, showSnackbar } = this.state;
+    const {
+      amount,
+      time,
+      isResultCalculated,
+      result,
+      loading,
+      showSnackbar,
+      history,
+    } = this.state;
     return (
       <div className='title-wrapper'>
         <h1 className='title-content'>Loan Interest Calculator</h1>
@@ -120,7 +154,14 @@ class CalculatorPage extends React.Component {
               />
             </div>
           </div>
-          <div className='calculator-sidebar'></div>
+          <div className='calculator-sidebar'>
+            { history &&
+              <CalculatorHistory
+                history={history}
+                onSelect={this.onHistorySelect}
+              />
+            }
+          </div>
           <MySnackbarWrapper
             open={showSnackbar}
             variant='error'

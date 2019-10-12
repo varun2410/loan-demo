@@ -11,3 +11,10 @@
     font: 20px Montserrat, sans-serif;
     margin: 0;
 }
+
+@media only screen and (max-width: 650px) {
+    .footer-wrapper {
+        z-index: 3;
+        font: 15px Montserrat, sans-serif;
+    }
+}

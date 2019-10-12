@@ -14,10 +14,10 @@ const StyledTableCell = withStyles(theme => ({
   head: {
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
-    fontSize: 20,
+    fontSize: 'inherit',
   },
   body: {
-    fontSize: 20,
+    fontSize: 'inherit',
   },
 }))(TableCell);
 

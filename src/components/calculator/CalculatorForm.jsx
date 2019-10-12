@@ -15,8 +15,8 @@ const useStyles = makeStyles({
     margin: 40,
   },
   input: {
-    width: '100%',
-    fontSize: 20,
+    width: '70%',
+    fontSize: 'inherit',
   },
   inputWrapper: {
     paddingBottom: 50,
@@ -46,77 +46,80 @@ const CalculatorForm = ({value, handleSliderChange, handleInputChange, handleBlu
 
   return (
     <div className={classes.root}>
-      <div className={classes.inputWrapper}>
+      <div className={
+        classes.inputWrapper}>
         <Typography id='input-slider' variant='h4' gutterBottom>
           Amount
         </Typography>
         <Grid container spacing={2} alignItems='center'>
-        <Grid item sm>
-          <Slider
-            value={typeof value.amount === 'number' ? value.amount : 0}
-            onChange={(event, newValue) => handleSliderChange(event, newValue, 'amount')}
-            aria-labelledby='input-slider'
-            min={500}
-            max={5000}
+          <Grid item sm>
+            <Slider
+              value={typeof value.amount === 'number' ? value.amount : 0}
+              onChange={(event, newValue) => handleSliderChange(event, newValue, 'amount')}
+              aria-labelledby='input-slider'
+              min={500}
+              max={5000}
+              className='slider-wrapper'
+            />
+          </Grid>
+          <AttachMoneyIcon
+            fontSize='large'
           />
+          <Grid item>
+            <Input
+              name='amount'
+              className={classes.input}
+              value={value.amount}
+              margin='dense'
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+              inputProps={{
+                step: 100,
+                min: 500,
+                max: 5000,
+                type: 'number',
+                'aria-labelledby': 'input-slider',
+              }}
+            />
+          </Grid>
         </Grid>
-        <AttachMoneyIcon
-          fontSize='large'
-        />
-        <Grid item>
-          <Input
-            name='amount'
-            className={classes.input}
-            value={value.amount}
-            margin='dense'
-            onChange={handleInputChange}
-            onBlur={handleBlur}
-            inputProps={{
-              step: 100,
-              min: 500,
-              max: 5000,
-              type: 'number',
-              'aria-labelledby': 'input-slider',
-            }}
-          />
-        </Grid>
-      </Grid>
       </div>
       <div className={classes.inputWrapper}>
         <Typography id='input-slider' variant='h4' gutterBottom>
           Months
         </Typography>
         <Grid container spacing={2} alignItems='center'>
-        <Grid item sm>
-          <Slider
-            value={typeof value.time === 'number' ? value.time : 0}
-            onChange={(event, newValue) => handleSliderChange(event, newValue, 'time')}
-            aria-labelledby='input-slider'
-            min={6}
-            max={24}
+          <Grid item sm>
+            <Slider
+              value={typeof value.time === 'number' ? value.time : 0}
+              onChange={(event, newValue) => handleSliderChange(event, newValue, 'time')}
+              aria-labelledby='input-slider'
+              min={6}
+              max={24}
+              className='slider-wrapper'
+            />
+          </Grid>
+          <DateRangeIcon
+            fontSize='large'
           />
+          <Grid item>
+            <Input
+              name='time'
+              className={classes.input}
+              value={value.time}
+              margin='dense'
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+              inputProps={{
+                step: 100,
+                min: 6,
+                max: 24,
+                type: 'number',
+                'aria-labelledby': 'input-slider',
+              }}
+            />
+          </Grid>
         </Grid>
-        <DateRangeIcon
-          fontSize='large'
-        />
-        <Grid item>
-          <Input
-            name='time'
-            className={classes.input}
-            value={value.time}
-            margin='dense'
-            onChange={handleInputChange}
-            onBlur={handleBlur}
-            inputProps={{
-              step: 100,
-              min: 6,
-              max: 24,
-              type: 'number',
-              'aria-labelledby': 'input-slider',
-            }}
-          />
-        </Grid>
-      </Grid>
       </div>
       <div className={classes.submitButtonWrapper}>
         <Button

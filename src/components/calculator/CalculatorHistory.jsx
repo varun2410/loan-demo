@@ -14,10 +14,10 @@ export const StyledTableCell = withStyles(theme => ({
   head: {
     backgroundColor: theme.palette.common.white,
     color: theme.palette.common.black,
-    fontSize: 20,
+    fontSize: 'inherit',
   },
   body: {
-    fontSize: 20,
+    fontSize: 'inherit',
     cursor: 'pointer',
   },
 }))(TableCell);

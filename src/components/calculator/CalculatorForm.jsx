@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     fontSize: 'inherit',
   },
   inputWrapper: {
-    paddingBottom: 50,
+    paddingBottom: 30,
   },
   submitButton: {
     fontSize: 15,

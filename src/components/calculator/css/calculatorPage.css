@@ -15,11 +15,11 @@
 }
 
 .calculator-wrapper {
-    font-size: 20px;
+    font-size: 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    top: 150px;
+    top: 120px;
     position: absolute;
     width: 100%;
 }
@@ -27,7 +27,7 @@
 .calculator-content {
     position: relative;
     background-color: whitesmoke;
-    height: 70vh;
+    height: 75vh;
     width: 50%;
     margin-left: 150px;
     box-shadow: 0 0 15px 5px #c9c1bd;
@@ -51,9 +51,9 @@
         font-size: 20px;
     }
     .calculator-content {
-        margin: 0px 20px ;
+        margin: 0 20px ;
         width: 80%;
-        font: 10px !important;
+        font-size: 10px !important;
     }
 
     .calculator-sidebar {
@@ -69,7 +69,7 @@
     }
 
     .slider-wrapper {
-        width: 220px !important;
+        width: 120px !important;
         overflow: visible;
     }
 }
@@ -84,17 +84,17 @@
 .calculator-sidebar {
     position: relative;
     background-color: whitesmoke;
-    height: 70vh;
+    height: 75vh;
     width: 20%;
     box-shadow: 0 0 15px 5px #c9c1bd;
     -moz-box-shadow: 0 0 15px 5px #c9c1bd;
     -webkit-box-shadow: 0 0 15px 5px #c9c1bd;
-    margin-right: 10px ;
+    margin-right: 50px ;
 }
 
 .result-wrapper {
-    margin-top: 40px;
-    margin-bottom: 80px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     width: 90%;
     align-self: center;
 }

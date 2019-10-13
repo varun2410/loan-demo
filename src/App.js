@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
 import './App.css';
 import CalculatorPage from "./components/calculator/CalculatorPage";
 
@@ -12,7 +11,6 @@ class App extends React.Component {
         <React.StrictMode>
           <CalculatorPage />
         </React.StrictMode>
-        <Footer />
       </div>
     )
   }

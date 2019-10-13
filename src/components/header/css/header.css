@@ -12,3 +12,13 @@
     font-size: 25px !important;
     font-family: Montserrat, sans-serif;
 }
+
+.brand-button {
+    border: none;
+    outline: none;
+}
+
+.brand-button:focus {
+    border: none;
+    outline: none;
+}
